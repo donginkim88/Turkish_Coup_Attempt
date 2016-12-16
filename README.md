@@ -1,4 +1,5 @@
-# 2016 Turkish Coup D’état Attempt and Its Effects on Public Interest in Politics 
+# 2016 Turkish Coup D’état Attempt 
+# and Its Effects on Public Interest in Politics 
 
 ## Intro
 On July 15, 2016, a group of Turkish military officers attempted to overthrow the incumbent Erdogan administration which they accused of going against “the democratic and secular rule of law”. This coup attempt ended in failure as President Erdogan strategically occupied most of the major strategic facilities and streets in Ankara and Istanbul and public protestors promptly responded against the coup. This research examines how the military coup affected public interest in politics through quantitative text analysis. It conducts text mining and statistical analysis on a large-scale dataset using programming interface R and Python.

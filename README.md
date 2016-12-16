@@ -11,5 +11,7 @@ The frequencies of non-political keywords were tested as controlled variables in
 
 ## Figures
 ![TR_erdogan_kemal](/figures/TR_erdogan_kemal.pdf)
+
 ![TR_party](/figures/TR_party.pdf)
+
 ![TR_Football](/figures/TR_Football.pdf)

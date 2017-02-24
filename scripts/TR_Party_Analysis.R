@@ -86,22 +86,23 @@ new_agg <- new_agg[new_agg$date >= as.Date('2016-07-10') & new_agg$date <= as.Da
 # ggplot with legend
 censorship <- as.numeric(as.Date(('2016-07-15')))
 
-#pdf('/Users/DonginKim/Desktop/Turkey Project/TR_party.pdf')
+pdf('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_party.pdf')
+png('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_party.png')
 
 ggplot(new_agg, aes(date, tweets, colour = L1)) +
   theme_calc() +
   scale_color_calc() +
-  theme(plot.title = element_text(size=15, face="bold", margin=margin(8,0,8,0))) +
+  theme(plot.title = element_text(size=15, face="bold", hjust=0.5, margin=margin(8,0,8,0))) +
   labs(title="Figure3: Political Parties", x="July 2016", y="Tweets") + 
   geom_line() +
   geom_point(size=1) +
   geom_vline(xintercept=censorship,linetype=5,lwd=.5) + 
-  geom_text(aes(x=(as.Date('2016-07-14')), label="Coup", y=1000), colour="grey30", angle=90) +
+  geom_text(aes(x=(as.Date('2016-07-15')), label="Coup", y=0.8*1600), colour="grey30") +
   scale_x_date(date_labels="%d", date_breaks="1 day") +
   scale_y_continuous(limits=c(0,1600), expand=c(0,0)) +
   scale_colour_manual("Keyword", values = c("p1"="red2","p2"="blue1", "p3"="orange1", "p4"="steelblue2"), labels=c("AKP", "CHP", "MHP", "HDP" ))
 
-#dev.off() 
+dev.off() 
 
 
 

@@ -9,8 +9,8 @@ library(psych)
 # geolocated tweets
 
 
-erdogan_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_erdogan.csv")
-kemal_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_kemal.csv")
+erdogan_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_erdogan.csv")
+kemal_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_kemal.csv")
 
 
 # Erdogan 
@@ -54,22 +54,23 @@ new_agg <- new_agg[new_agg$date >= as.Date('2016-07-10') & new_agg$date <= as.Da
 # ggplot with legend
 censorship <- as.numeric(as.Date(('2016-07-15')))
 
-#pdf('/Users/DonginKim/Desktop/Turkey Project/TR_erdogan_kemal.pdf')
+pdf('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_erdogan_kemal.pdf')
+png('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_erdogan_kemal.png')
 
 ggplot(new_agg, aes(date, tweets, colour = L1)) + 
   theme_calc() +
   scale_color_calc() +
-  theme(plot.title = element_text(size=15, face="bold", margin=margin(8,0,8,0))) +
+  theme(plot.title = element_text(size=15, face="bold", hjust=0.5, margin=margin(8,0,8,0))) +
   labs(title="Figure1: Erdogan vs. Kemal", x="July 2016", y="Tweets") + 
   geom_line() +
   geom_point(size=1) +
   geom_vline(xintercept=censorship,linetype=5,lwd=.5) + 
-  geom_text(aes(x=(as.Date('2016-07-14')), label="Coup", y=1000), colour="black", angle=90) +
+  geom_text(aes(x=(as.Date('2016-07-15')), label="Coup", y=0.8*1600), colour="black") +
   scale_x_date(date_labels="%d", date_breaks="1 day") +
   scale_y_continuous(limits=c(0,1600)) +
   scale_colour_manual("Keyword", values = c("p1"="red","p2"="blue"), labels=c("Erdogan", "Kemal"))
 
-#dev.off() 
+dev.off() 
 
 
 
@@ -181,22 +182,23 @@ new_odds <- melt(list(p1 = er_odds_df, p2 = k_odds_df), id.vars = c("Odds","Date
 
 # Odds Ratio ggplot with legend
 
-#pdf('/Users/DonginKim/Desktop/Turkey Project/TR_Odds_Ratio.pdf')
+pdf('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_Odds_Ratio.pdf')
+png('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_Odds_Ratio.png')
 
 ggplot(new_odds, aes(Date, Odds, colour = L1)) + 
   theme_calc() +
   scale_color_calc() +
-  theme(plot.title = element_text(size=15, face="bold", margin=margin(8,0,8,0))) +
+  theme(plot.title = element_text(size=15, face="bold", hjust=0.5, margin=margin(8,0,8,0))) +
   labs(title="Figure2: Odds Ratio", x="July 2016", y="Odds") + 
   geom_point(size=1) +
   geom_line() +
   scale_x_continuous(breaks = 0:8, labels = c("15","16","17","18","19","20","21","22","23")) +
   scale_y_continuous() +
   geom_vline(xintercept=0,linetype=5,lwd=.5) + 
-  geom_text(aes(x=0, label="Coup", y=15), colour="black", angle=90) +
+  geom_text(aes(x=0.1, label="Coup", y=0.8*22), colour="black") +
   scale_colour_manual("Keyword", values = c("p1"="red","p2"="blue"), labels=c("Erdogan", "Kemal"))
 
-#dev.off() 
+dev.off() 
 
 
 

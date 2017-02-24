@@ -1,3 +1,6 @@
+# This script is based on the tweet data in Turkey from 7/10 to 7/23 geolocated tweets
+
+# Import libraries
 library(ggplot2)
 library(dplyr)
 library(lubridate)
@@ -5,49 +8,44 @@ library(reshape2)
 library(ggthemes)
 library(psych)
 
-# based on the tweet data in Turkey from 7/10 to 7/23
-# geolocated tweets
-
-
+# Loading datasets
 erdogan_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_erdogan.csv")
 kemal_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_kemal.csv")
 
 
-# Erdogan 
+# Erdogan data
 names(erdogan_data) <- c("dummy", "tweet_created_at")  # Create column names
 erdogan_data <- erdogan_data["tweet_created_at"]
-
 erdogan_data$tweet_created_at <- as.POSIXct(erdogan_data$tweet_created_at, format="%H %B %d, %Y")
 #New_erdogan_data$tweet_created_at <- erdogan_data[erdogan_data$tweet_created_at %within% int,]
-
 erdogan_data$date <- as.Date(erdogan_data$tweet_created_at, format="%H %B %d, %Y")
 erdogan_data$hour <- as.POSIXct(erdogan_data$tweet_created_at, format="%H %B %d, %Y")  # Convert to PoSIXct
 erdogan_data$hour <- format(erdogan_data$hour, "%R")  # Convert date to date time 
 erdogan_data$count <- 1
-
 #date1 <- as.POSIXct("2016-01-01 02:00:00")
 #date2 <- as.POSIXct("2016-11-01 02:00:00")
 #int <- interval(date1, date2)
 
+# Aggregate by date
 erdogan_agg <- erdogan_data %>% group_by(date) %>% summarize(tweets = sum(count))
 erdogan_agg <- as.data.frame(erdogan_agg)
 
 
-# Kemal 
+# Kemal data
 names(kemal_data) <- c("dummy", "tweet_created_at")  # Create column names
 kemal_data <- kemal_data["tweet_created_at"]
-
 kemal_data$tweet_created_at <- as.POSIXct(kemal_data$tweet_created_at, format="%H %B %d, %Y")
-
 kemal_data$date <- as.Date(kemal_data$tweet_created_at, format="%H %B %d, %Y")
 kemal_data$hour <- as.POSIXct(kemal_data$tweet_created_at, format="%H %B %d, %Y")  # Convert to PoSIXct
 kemal_data$hour <- format(kemal_data$hour, "%R")  # Convert date to date time 
 kemal_data$count <- 1
 
+# Aggregate by date
 kemal_agg <- kemal_data %>% group_by(date) %>% summarize(tweets = sum(count))
 kemal_agg <- as.data.frame(kemal_agg)
 
-# Melting two dataframe into one
+
+# Melting two dataframes (Erdogan&Kemal) into one
 new_agg <- melt(list(p1 = erdogan_agg, p2 = kemal_agg), id.vars = c("date","tweets"))
 new_agg <- new_agg[new_agg$date >= as.Date('2016-07-10') & new_agg$date <= as.Date('2016-07-23'),]
 
@@ -73,13 +71,11 @@ ggplot(new_agg, aes(date, tweets, colour = L1)) +
 dev.off() 
 
 
-
-
 # Odds Ratio
-
   h_agg <- data %>%
   group_by(hour) %>%
   summarize(tweets = sum(count), retweets = sum(retweet), mentions = sum(mention), hashtags = sum(hashtag), followers = mean(user_followers_count))
+
 
 five_before <- new_agg[new_agg$date == as.Date('2016-07-10'),]
 erdogan_before <- five_before[five_before$L1=="p1","tweets"]
@@ -168,20 +164,18 @@ rownames(frequency_data) <- c("Erdogan", "Kemal")
 colnames(frequency_data) <- c("10","15","16","17","18","19","20","21","22","23")
 
 
-# Melting Erdogan and Kemal DF for Odds Ratio Plot
-# Erdogan DF
+# Melting two dataframes(Erdogan&Kemal) for the odds ratio plot
+# Erdogan dataframe
 days <- c(0,1,2,3,4,5,6,7,8)
 days <- data.frame(days)
 er_odds_df <- cbind(er_odds_df,days)
 colnames(er_odds_df) <- c("Odds", "Date")
-# Kemal DF
+# Kemal dataframe
 k_odds_df <- cbind(k_odds_df,days)
 colnames(k_odds_df) <- c("Odds", "Date")
-
 new_odds <- melt(list(p1 = er_odds_df, p2 = k_odds_df), id.vars = c("Odds","Date"))
 
 # Odds Ratio ggplot with legend
-
 pdf('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_Odds_Ratio.pdf')
 png('/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/figures/TR_Odds_Ratio.png')
 
@@ -201,10 +195,7 @@ ggplot(new_odds, aes(Date, Odds, colour = L1)) +
 dev.off() 
 
 
-
-
 # Summary Statistics
-
 # Erdogan
 erdogan_agg <- erdogan_agg[erdogan_agg$date >= as.Date('2016-07-10') & erdogan_agg$date <= as.Date('2016-07-23'),]
 describe(erdogan_agg$tweets)
@@ -216,7 +207,6 @@ sum(before_erdogan_agg$tweets)
 after_erdogan_agg <- erdogan_agg[erdogan_agg$date >= as.Date('2016-07-15') & erdogan_agg$date <= as.Date('2016-07-19'),]
 describe(after_erdogan_agg$tweets)
 sum(after_erdogan_agg$tweets)
-
 
 t.test(before_erdogan_agg$tweets, after_erdogan_agg$tweets, paired=TRUE, conf.level = 0.1)
 
@@ -235,23 +225,19 @@ sum(after_kemal_agg$tweets)
 t.test(after_erdogan_agg$tweets, before_erdogan_agg$tweets, paired=TRUE, conf.level = 0.1)
 t.test(after_kemal_agg$tweets, before_kemal_agg$tweets, paired=TRUE, conf.level = 0.1)
 
-?t.test()
-?wilcox.test()
-
-
-
-# normality test
+# Normality test
 mean(after_erdogan_agg$tweets) - mean(before_erdogan_agg$tweets)
-
 mean(after_kemal_agg$tweets) - mean(before_kemal_agg$tweets)
 boxplot(after_kemal_agg$tweets - before_kemal_agg$tweets)
 hist(after_kemal_agg$tweets - before_kemal_agg$tweets)
 qqnorm(after_kemal_agg$tweets - before_kemal_agg$tweets)
 qqline(after_kemal_agg$tweets - before_kemal_agg$tweets)
 
+#Shapiro test
 shapiro.test(after_kemal_agg$tweets - before_kemal_agg$tweets) # larger than 0.05 - follow normal dist.
 shapiro.test(after_erdogan_agg$tweets - before_erdogan_agg$tweets) # larger than 0.05 - follow normal dist.
 # if smaller than 0.05 - not follow normality/ no t-test
 
+#Wilcox test
 wilcox.test(after_erdogan_agg$tweets, before_erdogan_agg$tweets, paired=TRUE, conf.level = 0.1)
 wilcox.test(after_kemal_agg$tweets, before_kemal_agg$tweets, paired=TRUE, conf.level = 0.1)

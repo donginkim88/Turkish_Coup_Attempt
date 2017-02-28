@@ -8,10 +8,10 @@ library(reshape2)
 library(ggthemes)
 
 # Loading datasets
-football_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_football.csv")
-besiktas_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_besiktas.csv")
-fenerbahce_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_fenerbahce.csv")
-galatasaray_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_galatasaray.csv")
+football_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_football.csv")
+besiktas_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_besiktas.csv")
+fenerbahce_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_fenerbahce.csv")
+galatasaray_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_galatasaray.csv")
 
 # Football data
 names(football_data) <- c("dummy", "tweet_created_at")  # Create column names

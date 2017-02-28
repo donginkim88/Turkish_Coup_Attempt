@@ -8,10 +8,10 @@ library(reshape2)
 library(ggthemes)
 
 # Loading datasets
-AKP_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_AKP.csv")
-CHP_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_CHP.csv")
-MHP_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_MHP.csv")
-HDP_data <- read.csv("/Users/DonginKim/Desktop/Turkey Project/TR_HDP.csv")
+AKP_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_AKP.csv")
+CHP_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_CHP.csv")
+MHP_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_MHP.csv")
+HDP_data <- read.csv("/Users/DonginKim/Desktop/Git/Turkish_Coup_Attempt/keywords/TR_HDP.csv")
 
 # AKP data
 names(AKP_data) <- c("dummy", "tweet_created_at")  # Create column names

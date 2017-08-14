@@ -3,7 +3,7 @@
 ## Intro
 On July 15, 2016, a group of Turkish military officers attempted to overthrow the incumbent Erdogan administration which they accused of going against “the democratic and secular rule of law”. This coup attempt ended in failure as President Erdogan strategically occupied most of the major strategic facilities and streets in Ankara and Istanbul and public protestors promptly responded against the coup. This research examines how the military coup affected public interest in politics through quantitative text analysis. It conducts text mining and statistical analysis on a large-scale dataset using programming interface R and Python.
 
-**Please read [Wikipedia: 2016 Turkish coup d'état attempt](https://en.wikipedia.org/wiki/2016_Turkish_coup_d%27%C3%A9tat_attempt) for details on the Coup.**
+*Please read [Wikipedia: '2016 Turkish coup d'état attempt'](https://en.wikipedia.org/wiki/2016_Turkish_coup_d%27%C3%A9tat_attempt) for details on the Coup.
 
 ## Data and Methodology
 The data used in this research is a subset of 1,582,778 geo-located tweets in Turkey from July 10 to July 23, 2016, extracted by using Twitter streaming API. Each of the tweets contains a set of information which includes textual contents, hashtags, geo-coordinates and a timestamp of when that tweets were posted. 

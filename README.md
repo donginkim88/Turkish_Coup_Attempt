@@ -17,11 +17,13 @@ Summary statistics of the data employed in this research:
 
 
 ## Figures
-Figure 1 shows the number of Tweets mentioning the two keywords ‘Erdogan’ and ‘Kemal’ on a timeline with the vertical dotted line indicating the date of the coup attempt
+
+* Figure 1 shows the number of Tweets mentioning the two keywords ‘Erdogan’ and ‘Kemal’ on a timeline with the vertical dotted line indicating the date of the coup attempt
+
 ![TR_erdogan_kemal](/figures/TR_erdogan_kemal.png)
 
 
-In Table 3 and Figure 2, the number of Tweets for Erdogan and Kemal after the coup were compared with the equivalent of July 10th. By dividing each of the after- frequency data by the before-frequency data (July 10th), it shows how many more times the words were shared on Twitter in the days after the coup compared to their usual frequency.
+* In Table 3 and Figure 2, the number of Tweets for Erdogan and Kemal after the coup were compared with the equivalent of July 10th. By dividing each of the after- frequency data by the before-frequency data (July 10th), it shows how many more times the words were shared on Twitter in the days after the coup compared to their usual frequency.
 
 ![Odds Ratio](/Figures/Odds_ratio.png) 
 
@@ -29,9 +31,11 @@ In Table 3 and Figure 2, the number of Tweets for Erdogan and Kemal after the co
 ![TR_odds_ratio](/figures/TR_Odds_Ratio.png)
 
 
-In Figure 3, the significant effect of the coup d’état on the Tweets is observed and graphed, which shows that Twitter users shared more Tweets about the Turkish political parties on the date of and following the coup than on other days.
+* In Figure 3, the significant effect of the coup d’état on the Tweets is observed and graphed, which shows that Twitter users shared more Tweets about the Turkish political parties on the date of and following the coup than on other days.
+
 ![TR_party](/figures/TR_party.png)
 
 
-Figure 4 shows that the number of Tweets mentioning the four major football teams in Turkey on a timeline to test the validity of exclusive influence of the coup attempt on people’s interest in political subjects on Twitter. 
+* Figure 4 shows that the number of Tweets mentioning the four major football teams in Turkey on a timeline to test the validity of exclusive influence of the coup attempt on people’s interest in political subjects on Twitter. 
+
 ![TR_Football](/figures/TR_Football.png)

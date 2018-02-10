@@ -13,7 +13,7 @@ The frequencies of non-political keywords were tested as controlled variables in
 
 ## Summary Statistics
 Summary statistics of the data employed in this research:
-![Summary Statistics](/figures/Summary_statistics.png)
+![Summary Statistics](/Figures/Summary_statistics.png)
 
 
 ## Figures

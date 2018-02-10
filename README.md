@@ -21,7 +21,7 @@ Figure 1 shows the number of Tweets mentioning the two keywords ‘Erdogan’ an
 ![TR_erdogan_kemal](/figures/TR_erdogan_kemal.png)
 
 In Table 3 and Figure 2, the number of Tweets for Erdogan and Kemal after the coup were compared with the equivalent of July 10th. By dividing each of the after- frequency data by the before-frequency data (July 10th), it shows how many more times the words were shared on Twitter in the days after the coup compared to their usual frequency.
-![Summary Statistics](/figures/Odds_ratio.png) 
+![Odds Ratio](/Figures/Odds_ratio.png) 
 
 ![TR_odds_ratio](/figures/TR_Odds_Ratio.png)
 

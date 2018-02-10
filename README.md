@@ -39,3 +39,12 @@ Summary statistics of the data employed in this research:
 * Figure 4 shows that the number of Tweets mentioning the four major football teams in Turkey on a timeline to test the validity of exclusive influence of the coup attempt on people’s interest in political subjects on Twitter. 
 
 ![TR_Football](/figures/TR_Football.png)
+
+
+## Findings
+This research claims that analysis of the collected datasets on political and non-political keywords confirms the hypothesis that the Turkish military coup attempt is responsible for the short-term increase in public attention to a particular political subject. 
+
+Some areas to investigate further:
+* Cross-referencing to the dataset collected after the emergency rule went into effect on July 20, 2016
+* More sophisticated text mining through analysis of a grammatical and semantic relationship between words
+
